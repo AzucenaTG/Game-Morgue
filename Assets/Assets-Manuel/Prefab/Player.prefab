@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1906434284891420603}
   - component: {fileID: 6684108433443497130}
   - component: {fileID: 9029678437083977039}
-  - component: {fileID: 3974154740767868948}
+  - component: {fileID: 3894587012682978177}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -94,7 +94,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360088887999094998}
   m_Enabled: 1
---- !u!114 &3974154740767868948
+--- !u!114 &3894587012682978177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,41 +103,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 360088887999094998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 19ae8574b63870041b7061a578d185ea, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
+  m_EditorClassIdentifier: Assembly-CSharp::MouseLocker
+  sensibility: 100
+  bodyPlayer: {fileID: 9150748640002084192}
 --- !u!1 &1121607463632291013
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +118,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4815675196319664967}
   - component: {fileID: 2256885181232702174}
-  - component: {fileID: 89136466258792311}
   m_Layer: 0
   m_Name: FlashLight
   m_TagString: Untagged
@@ -236,35 +205,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &89136466258792311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121607463632291013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_CustomShadowLayers: 0
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1 &5066169519418313917
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +274,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ea4475257549ed741a3e6dca4bb01818, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -405,14 +345,13 @@ GameObject:
   m_Component:
   - component: {fileID: 9150748640002084192}
   - component: {fileID: 951691820960282770}
-  - component: {fileID: 3061511305670257133}
   - component: {fileID: 9184172534447957206}
-  - component: {fileID: 5835184867359701067}
   - component: {fileID: 6627489489389404398}
   - component: {fileID: 1919300753121951010}
   - component: {fileID: 2378829021513076506}
   - component: {fileID: 3985251929128263269}
   - component: {fileID: 8321046178581782403}
+  - component: {fileID: 6724151384566477499}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -461,23 +400,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3061511305670257133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521890677096240904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dc872ff736d6344e94e0c98e548d3c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  speed: 5
-  mouseSensitivity: 100
-  cameraTransform: {fileID: 1906434284891420603}
-  gravity: -9.8
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!114 &9184172534447957206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,27 +419,6 @@ MonoBehaviour:
   lowBattery: 20
   minIntensity: 1
   maxIntensity: 3
---- !u!65 &5835184867359701067
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521890677096240904}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6627489489389404398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +503,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUi
   InventoryUI: {fileID: 0}
+--- !u!114 &6724151384566477499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521890677096240904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc012fd70db34e74994e1b286fca87cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WASD
+  controller: {fileID: 951691820960282770}
+  cameraTransform: {fileID: 1906434284891420603}
+  walkSpeed: 4
+  runSpeed: 8
+  crouchSpeed: 2
+  maxStamina: 5
+  staminaRegen: 1
+  currentStamina: 0
+  crouchYPos: 0.8
+  smoothSpeed: 10
+  crouchHeight: 0.5
+  crouchCenterY: 0.5
+  runBobFrequency: 11
+  runBobAmount: 0.08
 --- !u!1 &7339605508267650298
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +596,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ea4475257549ed741a3e6dca4bb01818, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

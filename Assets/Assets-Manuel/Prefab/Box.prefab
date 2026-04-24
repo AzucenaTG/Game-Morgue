@@ -1854,7 +1854,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6583172758787208774}
-  - component: {fileID: 3592495154818724363}
   m_Layer: 0
   m_Name: Box
   m_TagString: CodeBox
@@ -1883,19 +1882,3 @@ Transform:
   - {fileID: 3847375276933322975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3592495154818724363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9079051470668883402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab81d00144012794290d2494f818a60b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BoxPassword
-  correctCode: 12345
-  lidHinge: {fileID: 908879383903428361}
-  openSpeed: 2
-  openRotation: {x: 0, y: 90, z: 0}

@@ -22,7 +22,8 @@ public class BoxPassword : MonoBehaviour
     void Update()
     {
         if (isOpen && lidHinge != null) {
-        
+
+            
             lidHinge.localRotation = Quaternion.Lerp(
                 
                 lidHinge.localRotation,
@@ -35,7 +36,7 @@ public class BoxPassword : MonoBehaviour
     public void AddDigit(string digit)
     {
         currentInput += digit;
-        Debug.Log(currentInput);
+        
     }
 
     public void CheckCode()
@@ -55,6 +56,7 @@ public class BoxPassword : MonoBehaviour
 
     public void OpenBox()
     {
+        
         isOpen = true;
     }
 
