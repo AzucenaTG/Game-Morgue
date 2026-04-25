@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - CodeBox
+  - Battery
+  - Door
+  - CodePaper
+  - Medic
+  - Key
+  - Sanity
   layers:
   - Default
   - TransparentFX
@@ -11,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Suelo
+  - Paredes
   - 
   - 
   - 
