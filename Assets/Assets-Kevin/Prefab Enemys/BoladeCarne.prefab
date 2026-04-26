@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7919952610054139953}
   - component: {fileID: 1117499380792911711}
   - component: {fileID: 4303242248164113080}
-  - component: {fileID: 7954710938859902591}
   m_Layer: 0
   m_Name: BoladeCarne
   m_TagString: Untagged
@@ -34122,29 +34121,3 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7954710938859902591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233993832849227032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0a2ca370b02bb4d9246923ae7796cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseEnemy
-  health: 100
-  walkSpeed: 1.5
-  runSpeed: 3.5
-  damage: 10
-  visionRange: 15
-  visionAngle: 45
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  player: {fileID: 0}
-  searchTime: 5
-  attackDistance: 1
-  timeBetweenAttacks: 1.5
-  roarTime: 2.5

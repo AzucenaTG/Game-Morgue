@@ -5,8 +5,8 @@ public class BaseEnemy : MonoBehaviour
 {
     [Header("Base Stats")]
     public float health = 100f;
-    public float walkSpeed = 1.5f; // Velocidad para patrullar/buscar
-    public float runSpeed = 3.5f;  // Velocidad para perseguir a muerte
+    public float walkSpeed = 3f; // Velocidad para patrullar/buscar
+    public float runSpeed = 4f;  // Velocidad para perseguir a muerte
     public int damage = 10;
 
     [Header("Vision Settings")]
@@ -181,7 +181,7 @@ public class BaseEnemy : MonoBehaviour
         Debug.Log("¡El enemigo te atacó!");
         if (anim != null) anim.SetTrigger("Attack");
 
-        // Buscamos el script de salud que me mostraste en el video
+        // Buscamos el script de salud 
         PlayerHealth healthScript = player.GetComponent<PlayerHealth>();
 
         if (healthScript != null)
