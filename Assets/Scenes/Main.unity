@@ -25275,6 +25275,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9184172534447957206, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: battery
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184172534447957206, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: drainSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28488,6 +28496,22 @@ PrefabInstance:
       propertyPath: flashLight
       value: 
       objectReference: {fileID: 1712001124}
+    - target: {fileID: 5904275428124538357, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904275428124538357, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904275428124538357, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904275428124538357, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 6198282696161786150, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
