@@ -11,18 +11,20 @@ public class BatteryUI_Icon : MonoBehaviour
     public Sprite casiBaja;
     public Sprite baja;
 
-    void Update()
-    {
-        float value = flashLight.battery;
+ void Update()
+{
+    if (flashLight == null)
+        return;
 
-        if (value > 75)
-            batteryImage.sprite = llena;
-        else if (value > 50)
-            batteryImage.sprite = media;
-        else if (value > 25)
-            batteryImage.sprite = casiBaja;
-        else
-            batteryImage.sprite = baja;
-    }
+    float value = flashLight.battery;
+
+    if (value > 750)
+        batteryImage.sprite = llena;
+    else if (value > 500)
+        batteryImage.sprite = media;
+    else if (value > 250)
+        batteryImage.sprite = casiBaja;
+    else
+        batteryImage.sprite = baja;
 }
-/*script hecho por Azucena de la bateria interfaz*/
+}
