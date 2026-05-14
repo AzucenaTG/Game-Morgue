@@ -4619,6 +4619,102 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &198980508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198980509}
+  - component: {fileID: 198980512}
+  - component: {fileID: 198980511}
+  - component: {fileID: 198980510}
+  m_Layer: 5
+  m_Name: estamina
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &198980509
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198980508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1854058533}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -762, y: -422}
+  m_SizeDelta: {x: 570.6775, y: 374.5734}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &198980510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198980508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439de5500fab1fe4686bff72a0fdd780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StaminaUI
+  staminaImage: {fileID: 198980511}
+  playerMovement: {fileID: 1833796136}
+  stamina100: {fileID: 21300000, guid: a695d63ad89c0ba46a820bbaaae1ba58, type: 3}
+  stamina75: {fileID: 21300000, guid: d5801107e38b64b4d87f566a0c1bb63a, type: 3}
+  stamina50: {fileID: 21300000, guid: c9febb84afa6cf945b163f7ae21d94af, type: 3}
+  stamina25: {fileID: 21300000, guid: c34d1534204ca374880af883f353a401, type: 3}
+  stamina10: {fileID: 21300000, guid: cf568fd2071550a41a51f39fc1c440a2, type: 3}
+  stamina0: {fileID: 21300000, guid: 20b958093ebf6334da6813d2b9a3d1bb, type: 3}
+--- !u!114 &198980511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198980508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a695d63ad89c0ba46a820bbaaae1ba58, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &198980512
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198980508}
+  m_CullTransparentMesh: 1
 --- !u!43 &203527472
 Mesh:
   m_ObjectHideFlags: 0
@@ -19327,7 +19423,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -858, y: -345}
+  m_AnchoredPosition: {x: -858, y: -286}
   m_SizeDelta: {x: 222.81, y: 154.8124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295982709
@@ -25589,6 +25685,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1833796136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6724151384566477499, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+  m_PrefabInstance: {fileID: 1833796133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342147660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc012fd70db34e74994e1b286fca87cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WASD
 --- !u!43 &1841207387
 Mesh:
   m_ObjectHideFlags: 0
@@ -28701,9 +28808,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 718546382666172279, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2345725828078411852, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3118610314050597778, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: inventory
@@ -28793,10 +28904,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643711198129314157, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4095119752516395459, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: flashLight
       value: 
       objectReference: {fileID: 1712001124}
+    - target: {fileID: 4563993082511109346, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5904275428124538357, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -28815,7 +28934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198282696161786150, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6740186564921863355, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: health
@@ -28827,7 +28946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8587810943411664764, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8912716734861248849, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: sanity
@@ -28842,6 +28961,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3612141536210749085, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1295982708}
+    - targetCorrespondingSourceObject: {fileID: 3612141536210749085, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 198980509}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
 --- !u!1 &1991544910 stripped
