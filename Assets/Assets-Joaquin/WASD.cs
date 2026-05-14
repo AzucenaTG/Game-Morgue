@@ -35,6 +35,10 @@ public class WASD : MonoBehaviour
     public float runBobAmount = 0.08f; //Que tanto sube y baja la camara
     private float timer = 0f; //Cronometro para la "onda" matematica
 
+    // --- Agregado por Azucena: audio de pasos ---
+    [Header("Audio")]
+    public AudioSource footstepsAudio;
+
 
 
     private void Start()
@@ -113,6 +117,19 @@ public class WASD : MonoBehaviour
             }
         }
 
+       // Sonido de pasos
+        if (isMoving)
+        {
+          if (!footstepsAudio.isPlaying)
+        {
+         footstepsAudio.Play();
+        }
+
+        }
+       else
+        {
+          footstepsAudio.Stop();
+        }  
 
         //Aplicar movimiento horizontal
         Vector3 move = transform.right * x + transform.forward * z;

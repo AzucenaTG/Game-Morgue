@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraTransform;
     float yVelocity;
     public float gravity = -9.8f;
+    public AudioSource footstepAudio; /*colocado por azu*/
 
     float xRotation = 0f;
     CharacterController controller;
@@ -22,6 +23,18 @@ public class PlayerMovement : MonoBehaviour
         // Movimiento
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        bool moving = Mathf.Abs(x) > 0.1f || Mathf.Abs(z) > 0.1f; /*colocado por azu*/
+
+        if (moving && controller.isGrounded) /*colocado por azu*/
+       {
+          if (!footstepAudio.isPlaying)
+          footstepAudio.Play();
+        }
+        else
+        {
+          footstepAudio.Stop();
+        }
 
         Vector3 move = transform.right * x + transform.forward * z;
 
