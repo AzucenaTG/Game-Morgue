@@ -18,13 +18,13 @@ public class BatteryUI_Icon : MonoBehaviour
 
     float value = flashLight.battery;
 
-    if (value > 750)
-        batteryImage.sprite = llena;
-    else if (value > 500)
-        batteryImage.sprite = media;
-    else if (value > 250)
-        batteryImage.sprite = casiBaja;
-    else
-        batteryImage.sprite = baja;
+   if (value > 75)
+    batteryImage.sprite = llena;
+  else if (value > 50)
+    batteryImage.sprite = media;
+  else if (value > 25)
+    batteryImage.sprite = casiBaja;
+  else
+    batteryImage.sprite = baja;
 }
 }

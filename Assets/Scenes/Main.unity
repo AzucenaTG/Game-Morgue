@@ -4690,7 +4690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.90588236}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9775,6 +9775,73 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &536812621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536812622}
+  - component: {fileID: 536812624}
+  - component: {fileID: 536812623}
+  m_Layer: 0
+  m_Name: EnemyVision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &536812622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536812621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 545730732}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &536812623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536812621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97eb4573cf3209f40869c64d9e24d775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStaminaDrain
+  staminaDrain: 0.5
+--- !u!135 &536812624
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536812621}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &541925174
 Mesh:
   m_ObjectHideFlags: 0
@@ -10168,6 +10235,11 @@ MonoBehaviour:
   - {fileID: 1046165203}
   - {fileID: 765720544}
   waitAtWaypointTime: 2
+--- !u!4 &545730732 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7050434561275968087, guid: 1f11a585110e8c849baa8e592620ca23, type: 3}
+  m_PrefabInstance: {fileID: 8163290844225420962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &551576610
 Mesh:
   m_ObjectHideFlags: 0
@@ -11903,10 +11975,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SanityMedic
       objectReference: {fileID: 0}
+    - target: {fileID: 8251383712009248313, guid: bcbc599d1cf11be43a924b13d9ed87ce, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5595984943217502652, guid: bcbc599d1cf11be43a924b13d9ed87ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1823986441}
   m_SourcePrefab: {fileID: 100100000, guid: bcbc599d1cf11be43a924b13d9ed87ce, type: 3}
 --- !u!43 &647798187
 Mesh:
@@ -25475,6 +25554,24 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1823986440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5595984943217502652, guid: bcbc599d1cf11be43a924b13d9ed87ce, type: 3}
+  m_PrefabInstance: {fileID: 640863232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1823986441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823986440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167ce01043b3da743977bdc54aee3b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StaminaPickUp
+  staminaAmount: 2
 --- !u!1001 &1833796133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25519,6 +25616,18 @@ PrefabInstance:
       propertyPath: interactionUI
       value: 
       objectReference: {fileID: 995556976}
+    - target: {fileID: 6724151384566477499, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: maxStamina
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724151384566477499, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: staminaDrain
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724151384566477499, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: staminaRegen
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6724151384566477499, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: footstepsAudio
       value: 
@@ -25569,7 +25678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184172534447957206, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: battery
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9184172534447957206, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: drainSpeed
@@ -31834,7 +31943,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7050434561275968087, guid: 1f11a585110e8c849baa8e592620ca23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 536812622}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1233993832849227032, guid: 1f11a585110e8c849baa8e592620ca23, type: 3}
       insertIndex: -1

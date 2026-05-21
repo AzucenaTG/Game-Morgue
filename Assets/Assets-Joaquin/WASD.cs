@@ -14,6 +14,7 @@ public class WASD : MonoBehaviour
     [Header("Estamina")]
     public float maxStamina = 5f; //Segundos maximos corriendo
     public float staminaRegen = 1f; //Regenaracion
+    public float staminaDrain = 0.5f;
 
     public float currentStamina;
     private bool isExhausted = false; //Esta variable es para cuando el jugador agote la estamina, imposibilitando que corra
@@ -86,7 +87,8 @@ public class WASD : MonoBehaviour
         //Manejo de la estamina
         if (isRunning && isMoving)
         {
-            currentStamina -= Time.deltaTime;
+            currentStamina -=
+            Time.deltaTime * staminaDrain;
 
             if (currentStamina <= 0)
             {
@@ -171,5 +173,11 @@ public class WASD : MonoBehaviour
             cameraTransform.localPosition.z
         );
 
+    }
+
+    public void RecoverStamina(float amount)
+   {
+     currentStamina += amount;
+     currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
     }
 }

@@ -4,7 +4,7 @@ public class FlashLight : MonoBehaviour
 {
     public Light flashLight;
 
-    public float battery = 1000f;
+    public float battery = 100f;
     public float drainSpeed = 1f;
     public float lowBattery = 20f;
 
@@ -34,7 +34,7 @@ public class FlashLight : MonoBehaviour
         }
 
         battery -= drainSpeed * Time.deltaTime;
-        battery = Mathf.Clamp(battery, 0, 1000);
+        battery = Mathf.Clamp(battery, 0, 100);
 
         if(battery <= 0)
         {

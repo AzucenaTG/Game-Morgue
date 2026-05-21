@@ -48,6 +48,8 @@ public class InventarySystem : MonoBehaviour
 
     public void UseItem(string item)
     {   
+        Debug.Log(item); 
+
         if(item == "Key")
         {
             return;
@@ -55,8 +57,13 @@ public class InventarySystem : MonoBehaviour
        
         if (item == "Battery")
         {
-           flashLight.battery += 25f;
-           flashLight.battery = Mathf.Clamp(flashLight.battery, 0, 100);
+         Debug.Log("Antes: " + flashLight.battery);
+
+         flashLight.battery += 25f;
+         flashLight.battery = Mathf.Clamp(
+         flashLight.battery,0,100);
+
+         Debug.Log("Después: " + flashLight.battery);
         }
 
         if (item == "Medic")
@@ -70,6 +77,17 @@ public class InventarySystem : MonoBehaviour
                 health.currentHealth = Mathf.Clamp(health.currentHealth, 0, health.maxHealth);
             }
         }
+          // agregado por Azu: recuperar estamina con pastillas
+        if (item == "Stamina")
+        {
+           WASD stamina = GetComponent<WASD>();
+
+        if (stamina != null)
+        {
+          stamina.RecoverStamina(2f);
+        }
+        }
+
 
         if (item == "Sanity")
         {

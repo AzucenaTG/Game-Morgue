@@ -31,10 +31,10 @@ public class StaminaUI : MonoBehaviour
         else if (staminaPercent > 10)
             staminaImage.sprite = stamina25;
 
-        else if (staminaPercent > 0)
-            staminaImage.sprite = stamina10;
+        else if (staminaPercent > 10)
+         staminaImage.sprite = stamina10;
 
         else
-            staminaImage.sprite = stamina0;
+          staminaImage.sprite = stamina0;
     }
 }
