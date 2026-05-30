@@ -22,7 +22,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (panelOpen)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetMouseButton(0))
             {
 
                 ClosePanel();
@@ -32,7 +32,7 @@ public class PlayerInteract : MonoBehaviour
 
         if (paperOpen)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetMouseButton(0))
             {
 
                 ClosePaper();
@@ -59,10 +59,10 @@ public class PlayerInteract : MonoBehaviour
                 }
                 else
                 {
-                    interactionUI.Show("Presiona Z para abrir");
+                    interactionUI.Show("Presiona el click izquierdo para abrir");
                 }
 
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetMouseButton(0))
                 {
 
                     door.ToggleDoor();
@@ -74,9 +74,9 @@ public class PlayerInteract : MonoBehaviour
 
             if (hit.collider.CompareTag("CodeBox"))
             {
-                interactionUI.Show("Presiona Z para usar");
+                interactionUI.Show("Presiona el click izquierdo para usar");
 
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetMouseButton(0))
                 {
                     if (!panelOpen)
                     {
@@ -93,9 +93,9 @@ public class PlayerInteract : MonoBehaviour
 
             if (hit.collider.CompareTag("CodePaper"))
             {
-                interactionUI.Show("Presiona Z para usar");
+                interactionUI.Show("Presiona el click izquierdo para usar");
 
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetMouseButton(0))
                 {
 
                     OpenPaper();
@@ -106,8 +106,8 @@ public class PlayerInteract : MonoBehaviour
 
            if (hit.collider.CompareTag("Battery"))
            {
-                interactionUI.Show("Presiona Z para usar");
-                if (Input.GetKeyDown(KeyCode.Z))
+                interactionUI.Show("Presiona el click izquierdo para usar");
+                if (Input.GetMouseButton(0))
                 {
                     if (inv.AddItem("Battery"))
                         {
@@ -118,8 +118,8 @@ public class PlayerInteract : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Medic"))
                 {
-                interactionUI.Show("Presiona Z para usar");
-                if (Input.GetKeyDown(KeyCode.Z))
+                interactionUI.Show("Presiona el click izquierdo para usar");
+                if (Input.GetMouseButton(0))
                     {
                        
                         if (inv.AddItem("Medic"))
@@ -131,8 +131,8 @@ public class PlayerInteract : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Sanity"))
                 {
-                interactionUI.Show("Presiona Z para usar");
-                if (Input.GetKeyDown(KeyCode.Z))
+                interactionUI.Show("Presiona el click izquierdo para usar");
+                if (Input.GetMouseButton(0))
                     {
 
                         if (inv.AddItem("Sanity"))
@@ -144,8 +144,8 @@ public class PlayerInteract : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Key"))
                 {
-                interactionUI.Show("Presiona Z para usar");
-                if (Input.GetKeyDown(KeyCode.Z)) {
+                interactionUI.Show("Presiona el click izquierdo para usar");
+                if (Input.GetMouseButton(0)) {
 
                         if (inv.AddItem("Key"))
                         {

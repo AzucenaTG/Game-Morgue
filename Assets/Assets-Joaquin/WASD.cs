@@ -40,6 +40,10 @@ public class WASD : MonoBehaviour
     [Header("Audio")]
     public AudioSource footstepsAudio;
 
+    [Header("Animaciones")]
+    public Animator anim;
+    public Transform model;
+
 
 
     private void Start()
@@ -69,7 +73,7 @@ public class WASD : MonoBehaviour
 
 
         //Comprobar si se presiona control izquierdo para agacharse
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftAlt))
         {
             currentSpeed = crouchSpeed;
             targetCamY = crouchYPos;
@@ -173,6 +177,55 @@ public class WASD : MonoBehaviour
             cameraTransform.localPosition.z
         );
 
+        // =========================
+        // ANIMACIONES
+        // =========================
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+            {
+                anim.Play("Walking");
+            }
+        }
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            
+
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+            {
+                anim.Play("Walking");
+            }
+        }
+         else if (Input.GetKey(KeyCode.A))
+        {
+            
+
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Left Strafe"))
+            {
+                anim.Play("Left Strafe Walk");
+            }
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            
+            
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Left Strafe"))
+            {
+                anim.Play("Left Strafe Walk");
+            }
+        }
+        else
+        {
+            
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                anim.Play("Breathing Idle");
+            }
+        }
+        
     }
 
     public void RecoverStamina(float amount)
