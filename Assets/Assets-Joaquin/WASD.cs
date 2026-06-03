@@ -79,6 +79,7 @@ public class WASD : MonoBehaviour
             targetCamY = crouchYPos;
             targetHeight = crouchHeight;
             targetCenterY = crouchCenterY;
+            
         }
 
         //Comprobar si se presiona shift para correr
@@ -86,6 +87,7 @@ public class WASD : MonoBehaviour
         {
             currentSpeed = runSpeed;
             isRunning = true;
+            
         }
 
         //Manejo de la estamina
@@ -181,7 +183,35 @@ public class WASD : MonoBehaviour
         // ANIMACIONES
         // =========================
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.W))){
+             
+             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Running"))
+            {
+                anim.Play("Running");
+            }   
+        }
+        else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.S))
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Running"))
+            {
+                anim.Play("Running");
+            }
+        }
+          else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A))
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Running"))
+            {
+                anim.Play("Running");
+            }
+        }
+          else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Running"))
+            {
+                anim.Play("Running");
+            }
+        }
+        else if (Input.GetKey(KeyCode.W))
         {
             
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Walking"))

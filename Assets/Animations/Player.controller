@@ -45,8 +45,8 @@ AnimatorStateMachine:
     m_State: {fileID: -5410123114220458810}
     m_Position: {x: 0, y: 250, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1210373234027588209}
-    m_Position: {x: 0, y: 320, z: 0}
+    m_State: {fileID: 179893351418127171}
+    m_Position: {x: 0, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -105,14 +105,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1210373234027588209
+--- !u!1102 &179893351418127171
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fast Run
+  m_Name: Running
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -125,7 +125,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 0eed8a2877da582eb9515be59fbbe169, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 0d4d0f276d0bd5428ad38c84b9b59c96, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -19716,6 +19716,45 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b4a46c7ba09594e9c13c4006944a9a, type: 3}
+--- !u!1 &835354380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1233993832849227032, guid: 1f11a585110e8c849baa8e592620ca23, type: 3}
+  m_PrefabInstance: {fileID: 8163290844225420962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835354385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835354380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f041bed3baa8584ba6bedfb611c899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 10
+--- !u!65 &835354386
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835354380}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &839767838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33001,17 +33040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efb59949e4c11141b9fad39e45f6307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventarySystem
---- !u!114 &1712001120 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2378829021513076506, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
-  m_PrefabInstance: {fileID: 1833796133}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342147660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2347578b975652747b8542cf03b002c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SanitySystem
 --- !u!114 &1712001121 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1919300753121951010, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
@@ -35793,20 +35821,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1906434284891420603, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.831
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1906434284891420603, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.683
+      value: 3.712
       objectReference: {fileID: 0}
     - target: {fileID: 1906434284891420603, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.563
+      value: -0.046
       objectReference: {fileID: 0}
     - target: {fileID: 1919300753121951010, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: damageOverlay
       value: 
       objectReference: {fileID: 640895848}
+    - target: {fileID: 2286162238024865914, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286162238024865914, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.139
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286162238024865914, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.563
+      objectReference: {fileID: 0}
     - target: {fileID: 3810599993844357103, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -35869,7 +35909,7 @@ PrefabInstance:
       objectReference: {fileID: 1991544912}
     - target: {fileID: 9150748640002084192, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.04
+      value: 1.188
       objectReference: {fileID: 0}
     - target: {fileID: 9150748640002084192, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35915,7 +35955,9 @@ PrefabInstance:
       propertyPath: drainSpeed
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2378829021513076506, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
+    - {fileID: 3810599993844357103, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7339605508267650298, guid: aec69fe3d34c0234383df4aead61c0ee, type: 3}
     m_AddedGameObjects:
@@ -36060,13 +36102,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-    'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:RightArm'\n\tTransform
-    'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightFoot'\n\tTransform
-    'mixamorig:Head'\n\tTransform 'mixamorig:LeftUpLeg'\n\tand more ...\n\tFrom animation
-    clip 'Fast Run'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -40228,7 +40264,7 @@ PrefabInstance:
     - target: {fileID: 8912716734861248849, guid: 6720b96ea3ec9a44f88b210faa5fd387, type: 3}
       propertyPath: sanity
       value: 
-      objectReference: {fileID: 1712001120}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -43897,7 +43933,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1233993832849227032, guid: 1f11a585110e8c849baa8e592620ca23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835354385}
+    - targetCorrespondingSourceObject: {fileID: 1233993832849227032, guid: 1f11a585110e8c849baa8e592620ca23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835354386}
   m_SourcePrefab: {fileID: 100100000, guid: 1f11a585110e8c849baa8e592620ca23, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
