@@ -24,6 +24,8 @@ public class InventarySystem : MonoBehaviour
 
     public bool AddItem(string item)
     {
+         Debug.Log("Agregando item: " + item);
+         
        if(items.Count>= display.slotCount)
         {
             if(uiMessage != null)
@@ -34,10 +36,11 @@ public class InventarySystem : MonoBehaviour
         }
         
         items.Add(item);
+    
 
         if (display != null)
         {
-
+           Debug.Log("Actualizando UI");
             display.RefreshUI();
         }
 

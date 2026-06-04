@@ -48,6 +48,7 @@ public class PlayerInteract : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
+           
             Door door = hit.collider.GetComponentInParent<Door>();
 
             if (door != null)
@@ -109,6 +110,7 @@ public class PlayerInteract : MonoBehaviour
                 interactionUI.Show("Presiona el click izquierdo para usar");
                 if (Input.GetMouseButton(0))
                 {
+                     Debug.Log("Intentando recoger batería");
                     if (inv.AddItem("Battery"))
                         {
                             Destroy(hit.collider.gameObject);

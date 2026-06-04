@@ -44,9 +44,11 @@ public class InventoryDsiplay : MonoBehaviour
     public void RefreshUI()
     {
         int index = 0;
+       
 
         foreach(string itemName in inventory.items)
         {
+            
             if (index >= slots.Count)
             {
                 break;
@@ -63,7 +65,11 @@ public class InventoryDsiplay : MonoBehaviour
 
             Button btn = obj.GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(() => inventory.UseItem(itemName));
+            btn.onClick.AddListener(() =>
+            {
+              Debug.Log("CLICK DEL BOTON");
+              inventory.UseItem(itemName);
+            });
             btn.interactable = true;
             
             index++;
