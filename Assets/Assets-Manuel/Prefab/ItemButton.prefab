@@ -197,19 +197,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086061021648730434}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8515414572429541569}
-        m_TargetAssemblyTypeName: InventoryItemUI, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8515414572429541569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryItemUI
   text: {fileID: 8544795779692521770}
   icon: {fileID: 1809523485630869274}
+  batteryIcon: {fileID: 0}
+  medicIcon: {fileID: 0}
+  sanityIcon: {fileID: 0}
+  keyIcon: {fileID: 0}
 --- !u!1 &8388922119024082492
 GameObject:
   m_ObjectHideFlags: 0
