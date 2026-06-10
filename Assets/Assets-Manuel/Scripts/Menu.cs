@@ -6,7 +6,7 @@ public class Menu : MonoBehaviour
 {
     public void Jugar()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Escena_Intro");
     }
 
        public void MenuPrincipal()
