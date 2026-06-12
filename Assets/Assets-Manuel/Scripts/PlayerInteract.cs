@@ -1,30 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 public class PlayerInteract : MonoBehaviour
 {
     public float interactDistance = 3f;
     public Camera playerCamera;
     public FlashLight flashLight;
     public InteractionUIDoorKey interactionUI;
+
     public GameObject keypadPanel;
     private bool panelOpen = false;
+
     public GameObject paperUI;
+    public Image paperUIImage;
     private bool paperOpen = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (panelOpen)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-
                 ClosePanel();
             }
             return;
@@ -32,133 +28,138 @@ public class PlayerInteract : MonoBehaviour
 
         if (paperOpen)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-
                 ClosePaper();
             }
             return;
         }
 
+        Ray ray = new Ray(
+            playerCamera.transform.position,
+            playerCamera.transform.forward
+        );
 
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit hit;
 
         InventarySystem inv = FindAnyObjectByType<InventarySystem>();
 
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-           
             Door door = hit.collider.GetComponentInParent<Door>();
 
             if (door != null)
             {
-
                 if (door.requireKey)
                 {
                     interactionUI.Show("Necesitas llave");
                 }
                 else
                 {
-                    interactionUI.Show("Presiona el click izquierdo para abrir");
+                    interactionUI.Show("Presiona click izquierdo para abrir");
                 }
 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
-
                     door.ToggleDoor();
                 }
 
                 return;
-
             }
 
             if (hit.collider.CompareTag("CodeBox"))
             {
-                interactionUI.Show("Presiona el click izquierdo para usar");
+                interactionUI.Show("Presiona click izquierdo para usar");
 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     if (!panelOpen)
                     {
                         OpenPanel();
                     }
-                    else
-                    {
-                        ClosePanel();
-                    }
                 }
-                return;
 
+                return;
             }
 
             if (hit.collider.CompareTag("CodePaper"))
             {
-                interactionUI.Show("Presiona el click izquierdo para usar");
+                interactionUI.Show("Presiona click izquierdo para leer");
 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
+                    Paper paper = hit.collider.GetComponent<Paper>();
 
-                    OpenPaper();
+                    if (paper != null)
+                    {
+                        OpenPaper(paper.paperImage);
+                    }
                 }
 
                 return;
             }
 
-           if (hit.collider.CompareTag("Battery"))
-           {
-                interactionUI.Show("Presiona el click izquierdo para usar");
-                if (Input.GetMouseButton(0))
+            if (hit.collider.CompareTag("Battery"))
+            {
+                interactionUI.Show("Presiona click izquierdo para recoger");
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                     Debug.Log("Intentando recoger batería");
                     if (inv.AddItem("Battery"))
-                        {
-                            Destroy(hit.collider.gameObject);
-                        }
-                    }
-                    
-                }
-                else if (hit.collider.CompareTag("Medic"))
-                {
-                interactionUI.Show("Presiona el click izquierdo para usar");
-                if (Input.GetMouseButton(0))
                     {
-                       
-                        if (inv.AddItem("Medic"))
-                        {
-                            Destroy(hit.collider.gameObject);
-                        }
-
+                        Destroy(hit.collider.gameObject);
                     }
                 }
-                else if (hit.collider.CompareTag("Sanity"))
+
+                return;
+            }
+
+            if (hit.collider.CompareTag("Medic"))
+            {
+                interactionUI.Show("Presiona click izquierdo para recoger");
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                interactionUI.Show("Presiona el click izquierdo para usar");
-                if (Input.GetMouseButton(0))
+                    if (inv.AddItem("Medic"))
                     {
-
-                        if (inv.AddItem("Sanity"))
-                        {
-                            Destroy(hit.collider.gameObject);
-                        }
+                        Destroy(hit.collider.gameObject);
                     }
-                    
                 }
-                else if (hit.collider.CompareTag("Key"))
+
+                return;
+            }
+
+            if (hit.collider.CompareTag("Sanity"))
+            {
+                interactionUI.Show("Presiona click izquierdo para recoger");
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                interactionUI.Show("Presiona el click izquierdo para usar");
-                if (Input.GetMouseButton(0)) {
-
-                        if (inv.AddItem("Key"))
-                        {
-                            Destroy(hit.collider.gameObject);
-                        }
+                    if (inv.AddItem("Sanity"))
+                    {
+                        Destroy(hit.collider.gameObject);
                     }
-                    
                 }
 
-            return;
+                return;
+            }
+
+            if (hit.collider.CompareTag("Key"))
+            {
+                interactionUI.Show("Presiona click izquierdo para recoger");
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (inv.AddItem("Key"))
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
+                }
+
+                return;
+            }
         }
+
         interactionUI.Hide();
     }
 
@@ -180,8 +181,10 @@ public class PlayerInteract : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void OpenPaper()
+    void OpenPaper(Sprite image)
     {
+        paperUIImage.sprite = image;
+
         paperUI.SetActive(true);
         paperOpen = true;
 
@@ -198,4 +201,3 @@ public class PlayerInteract : MonoBehaviour
         Cursor.visible = false;
     }
 }
-
