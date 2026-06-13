@@ -9,11 +9,13 @@ public class InventarySystem : MonoBehaviour
     public float sanityAmount = 25f;
     public InventoryDsiplay display;
     public UIMessage uiMessage;
-
+    [SerializeField] private GameObject audioManager;
+    private ZoneController zoneController;
+    private bool obtainKey = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        zoneController = audioManager.GetComponent<ZoneController>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,11 @@ public class InventarySystem : MonoBehaviour
             display.RefreshUI();
         }
 
+        if (item == "Key" && !obtainKey)
+        {
+            obtainKey = true;
+            zoneController.TransitionInBack();
+        }
         return true;
        
     
