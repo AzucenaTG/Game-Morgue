@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class BossPuzzle : MonoBehaviour
 {
@@ -16,11 +18,20 @@ public class BossPuzzle : MonoBehaviour
     public WASD playerMovement;
     public MouseLocker mouseLook;
 
+    [Header("Victoria")]
+    public Image whiteFade;
+    public string victorySceneName = "VictoryScene";
+    public float fadeDuration = 3f;
+
     private int currentStep = 0;
 
     void Start()
-    {
+    {   
         dialogPanel.SetActive(false);
+
+        Color color = whiteFade.color;
+        color.a = 0f;
+        whiteFade.color = color;
 
         word1.onClick.AddListener(() => CheckWord("LUZ"));
         word2.onClick.AddListener(() => CheckWord("SOMBRA"));
@@ -73,7 +84,7 @@ public class BossPuzzle : MonoBehaviour
                 word2.gameObject.SetActive(false);
                 word3.gameObject.SetActive(false);
 
-                Invoke(nameof(ClosePanel), 3f);
+                StartCoroutine(VictorySequence());
             }
         }
         else
@@ -113,5 +124,22 @@ public class BossPuzzle : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    IEnumerator VictorySequence()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Color color = whiteFade.color;
+
+        while (color.a < 1f)
+        {
+            color.a += Time.deltaTime * 0.5f;
+            whiteFade.color = color;
+
+            yield return null;
+        }
+
+        SceneManager.LoadScene(victorySceneName);
     }
 }
