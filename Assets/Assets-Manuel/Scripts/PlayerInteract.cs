@@ -15,6 +15,11 @@ public class PlayerInteract : MonoBehaviour
     public Image paperUIImage;
     private bool paperOpen = false;
 
+    [Header("Tutorial Inventario")]
+    public GameObject inventoryMessage; 
+
+    private bool inventoryTutorialShown = false;
+
     void Update()
     {
         if (panelOpen)
@@ -107,6 +112,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     if (inv.AddItem("Battery"))
                     {
+                        ShowInventoryTutorial();
                         Destroy(hit.collider.gameObject);
                     }
                 }
@@ -122,6 +128,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     if (inv.AddItem("Medic"))
                     {
+                         ShowInventoryTutorial();
                         Destroy(hit.collider.gameObject);
                     }
                 }
@@ -199,5 +206,22 @@ public class PlayerInteract : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    void ShowInventoryTutorial()
+    {
+        if (inventoryTutorialShown)
+            return;
+
+        inventoryTutorialShown = true;
+
+        inventoryMessage.SetActive(true);
+
+        Invoke(nameof(HideInventoryTutorial), 5f); // se oculta después de 5 segundos
+    }
+
+    void HideInventoryTutorial()
+    {
+        inventoryMessage.SetActive(false);
     }
 }
