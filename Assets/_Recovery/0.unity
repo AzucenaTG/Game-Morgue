@@ -31781,7 +31781,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc012fd70db34e74994e1b286fca87cb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WASD
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1001 &1834571190
 PrefabInstance:
   m_ObjectHideFlags: 0

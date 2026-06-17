@@ -1,0 +1,121 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+public class InventarySystem : MonoBehaviour
+{
+    public List<string> items = new List<string>();
+    public FlashLight flashLight;
+    public float healAmount = 25f;
+    public float sanityAmount = 25f;
+    public InventoryDsiplay display;
+    public UIMessage uiMessage;
+    [SerializeField] private GameObject audioManager;
+    private ZoneController zoneController;
+    private bool obtainKey = false;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        zoneController = audioManager.GetComponent<ZoneController>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public bool AddItem(string item)
+    {
+         Debug.Log("Agregando item: " + item);
+         
+       if(items.Count>= display.slotCount)
+        {
+            if(uiMessage != null)
+            {
+                uiMessage.ShowMessage();
+            }
+            return false;
+        }
+        
+        items.Add(item);
+    
+
+        if (display != null)
+        {
+           Debug.Log("Actualizando UI");
+            display.RefreshUI();
+        }
+
+        if (item == "Key" && !obtainKey)
+        {
+            obtainKey = true;
+            zoneController.TransitionInBack();
+        }
+        return true;
+       
+    
+    }
+
+    public void UseItem(string item)
+    {   
+        Debug.Log(item); 
+
+        if(item == "Key")
+        {
+            return;
+        }
+       
+        if (item == "Battery")
+        {
+         Debug.Log("Antes: " + flashLight.battery);
+
+         flashLight.battery += 25f;
+         flashLight.battery = Mathf.Clamp(
+         flashLight.battery,0,100);
+
+         Debug.Log("Después: " + flashLight.battery);
+        }
+
+        if (item == "Medic")
+        {
+            PlayerHealth health = GetComponent<PlayerHealth>();
+
+            if (health != null)
+            {
+
+                health.currentHealth += healAmount;
+                health.currentHealth = Mathf.Clamp(health.currentHealth, 0, health.maxHealth);
+            }
+        }
+          // agregado por Azu: recuperar estamina con pastillas
+        if (item == "Stamina")
+        {
+           PlayerController stamina = GetComponent<PlayerController>();
+
+        if (stamina != null)
+        {
+          stamina.RecoverStamina(2f);
+        }
+        }
+
+
+        if (item == "Sanity")
+        {
+            SanitySystem sanity = GetComponent<SanitySystem>();
+
+            if (sanity != null)
+            {
+
+                sanity.currentSanity += sanityAmount;
+                sanity.currentSanity = Mathf.Clamp(sanity.currentSanity, 0, sanity.maxSanity);
+            }
+        }
+
+       items.Remove(item);
+
+        if(display != null) 
+        { 
+            display.RefreshUI(); 
+        }
+    }
+}
