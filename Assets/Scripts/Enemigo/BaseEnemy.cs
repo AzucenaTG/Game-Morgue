@@ -4,9 +4,8 @@ using UnityEngine.AI;
 public class BaseEnemy : MonoBehaviour
 {
     [Header("Base Stats")]
-    public float health = 100f;
-    public float walkSpeed = 3f; // Velocidad para patrullar/buscar
-    public float runSpeed = 4f;  // Velocidad para perseguir a muerte
+    public float walkSpeed = 3f;
+    public float runSpeed = 4f;
     public int damage = 10;
 
     [Header("Vision Settings")]
@@ -16,20 +15,19 @@ public class BaseEnemy : MonoBehaviour
     public Transform player;
 
     [Header("Search and Memory")]
-    public float searchTime = 5f; // Cuánto tiempo se queda buscando
+    public float searchTime = 5f;
     protected float searchTimer = 0f;
     protected bool isSearchingPlayer = false;
     protected Vector3 lastKnownPosition;
 
-    [Header("Attack")]
-    public float attackDistance = 1f;
+    [Header("Attack (Integrado)")]
+    public float attackDistance = 3f; // Distancia para que el bicho frene y no te atraviese
     public float timeBetweenAttacks = 1.5f;
     protected float attackTimer = 0f;
 
-    [Header("Animations and Pauses")]
-    public float roarTime = 2.5f; // Tiempo que dura el rugido
-    protected bool isRoaring = false;
-    protected float roarTimer = 0f;
+    [Header("Fear Aura - Stamina Drain (Integrado)")]
+    public float fearAuraRadius = 3f; // Distancia a la que te empieza a robar energía
+    public float staminaDrainRate = 0.15f; // La velocidad de drenaje de tu compañero
 
     protected NavMeshAgent agent;
     protected bool seesPlayer = false;
@@ -37,33 +35,18 @@ public class BaseEnemy : MonoBehaviour
 
     protected virtual void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
 
     protected virtual void Update()
     {
-        if (isRoaring)
-        {
-            roarTimer -= Time.deltaTime;
-            agent.isStopped = true;
-
-            if (agent != null && anim != null)
-            {
-                anim.SetFloat("VelX", 0f);
-                anim.SetFloat("VelZ", 0f);
-            }
-
-            if (roarTimer <= 0)
-            {
-                isRoaring = false;
-            }
-            return;
-        }
-
         attackTimer += Time.deltaTime;
 
         CheckVision();
+
+        // Ejecutamos el drenaje de energía de tu compañero sin usar Triggers que rompan las físicas
+        ApplyFearAura();
 
         if (seesPlayer)
         {
@@ -82,35 +65,59 @@ public class BaseEnemy : MonoBehaviour
             StopEnemy();
         }
 
+        // Lógica de Animaciones
         if (agent != null && anim != null)
         {
-            Vector3 localVelocity = Vector3.zero;
+            bool isMoving = !agent.isStopped && !agent.pathPending && agent.remainingDistance > agent.stoppingDistance;
+            bool isWalking = isMoving && agent.speed == walkSpeed;
+            bool isChasing = isMoving && agent.speed == runSpeed;
 
-            if (!agent.isStopped && !agent.pathPending && agent.remainingDistance > agent.stoppingDistance)
+            anim.SetBool("Caminando", isWalking);
+            anim.SetBool("Persiguiendo", isChasing);
+        }
+    }
+
+    protected virtual void ApplyFearAura()
+    {
+        float currentDistance = Vector3.Distance(transform.position, player.position);
+
+        if (currentDistance <= fearAuraRadius)
+        {
+            // La idea de tu compañero, adaptada a tu arquitectura
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            if (playerController != null)
             {
-                localVelocity = transform.InverseTransformDirection(agent.desiredVelocity);
+                playerController.currentStamina -= staminaDrainRate * Time.deltaTime;
+                playerController.currentStamina = Mathf.Clamp(playerController.currentStamina, 0, playerController.maxStamina);
             }
-
-            anim.SetFloat("VelX", localVelocity.x);
-            anim.SetFloat("VelZ", localVelocity.z);
         }
     }
 
     protected virtual void Chase()
     {
-        agent.isStopped = false;
-        agent.speed = runSpeed;
-        agent.SetDestination(player.position);
-
         float currentDistance = Vector3.Distance(transform.position, player.position);
 
         if (currentDistance <= attackDistance)
         {
+            // Clavamos los frenos para que no te atraviese
+            agent.isStopped = true;
+
+            // Lo hacemos rotar para que siempre mire al jugador mientras ataca
+            Vector3 direction = (player.position - transform.position).normalized;
+            direction.y = 0;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 5f);
+
             if (attackTimer >= timeBetweenAttacks)
             {
                 Attack();
                 attackTimer = 0f;
             }
+        }
+        else
+        {
+            agent.isStopped = false;
+            agent.speed = runSpeed;
+            agent.SetDestination(player.position);
         }
     }
 
@@ -136,13 +143,6 @@ public class BaseEnemy : MonoBehaviour
             float currentAngle = Vector3.Angle(transform.forward, (player.position - transform.position).normalized);
             if (currentAngle < visionAngle)
             {
-                if (!isSearchingPlayer)
-                {
-                    if (anim != null) anim.SetTrigger("SawPlayer");
-                    isRoaring = true;
-                    roarTimer = roarTime;
-                }
-
                 seesPlayer = true;
                 return;
             }
@@ -178,68 +178,30 @@ public class BaseEnemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-        Debug.Log("¡El enemigo te atacó!");
-        if (anim != null) anim.SetTrigger("Attack");
+        // 1. Ejecutamos TU animación
+        if (anim != null) anim.SetTrigger("Atacar");
 
-        // Buscamos el script de salud 
         PlayerHealth healthScript = player.GetComponent<PlayerHealth>();
 
         if (healthScript != null)
         {
-            // Le restamos el daño del enemigo a la vida actual del jugador
-            healthScript.currentHealth -= damage;
-
-            // Para que la vida no baje de cero
-             //if (healthScript.currentHealth < 0): Le pregunta a la computadora: "¿La vida del jugador se pasó para abajo del cero?".
-              //healthScript.currentHealth = 0;: Si la respuesta es "sí", la computadora lo corrige a la fuerza y lo deja clavado en 0.
-            
-            if (healthScript.currentHealth < 0) healthScript.currentHealth = 0;
-
-            Debug.Log("Vida restante del jugador: " + healthScript.currentHealth);
-        }
-        else
-        {
-            Debug.LogWarning("No se encontró el script PlayerHealth en el objeto asignado.");
+            // 2. Ejecutamos el daño estandarizado de tu compañero
+            healthScript.TakeDamage(damage);
         }
     }
 
-    public virtual void TakeDamage(int amount)
-    {
-        health -= amount;
-        if (anim != null) anim.SetTrigger("TakeDamage");
-
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    protected virtual void Die()
-    {
-        Debug.Log("El enemigo ha muerto");
-        if (anim != null) anim.SetBool("IsDead", true);
-
-        agent.isStopped = true;
-
-        // Chequear si tiene collider antes de apagarlo
-        Collider col = GetComponent<Collider>();
-        if (col != null) col.enabled = false;
-
-        this.enabled = false;
-    }
-
-    //  Esto dibuja líneas en la escena para que configures los rangos visualmente
     protected virtual void OnDrawGizmosSelected()
     {
-        // Dibuja el rango de visión (Amarillo)
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, visionRange);
 
-        // Dibuja el rango de ataque (Rojo)
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackDistance);
 
-        // Dibuja las líneas del ángulo de visión (Azul)
+        // Agregamos una esfera violeta para que veas el área del Aura de Miedo
+        Gizmos.color = new Color(0.5f, 0f, 0.5f, 0.3f);
+        Gizmos.DrawWireSphere(transform.position, fearAuraRadius);
+
         Gizmos.color = Color.blue;
         Vector3 forward = transform.forward;
         Vector3 leftBoundary = Quaternion.Euler(0, -visionAngle, 0) * forward;

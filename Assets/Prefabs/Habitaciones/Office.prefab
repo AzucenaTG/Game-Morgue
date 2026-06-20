@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 6588879851205998752}
   - component: {fileID: 1548437626741600495}
   - component: {fileID: 1322532175841601362}
-  - component: {fileID: 4445003415242396444}
   m_Layer: 0
   m_Name: Pared (35)
   m_TagString: Untagged
@@ -370,28 +369,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696006564257361289}
   m_Mesh: {fileID: 0}
---- !u!64 &4445003415242396444
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696006564257361289}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &1819846263320664303
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +382,6 @@ GameObject:
   - component: {fileID: 1397311938149602767}
   - component: {fileID: 4259612046811388278}
   - component: {fileID: 2414499539437404379}
-  - component: {fileID: 916812391778203019}
   m_Layer: 0
   m_Name: Suelo (14)
   m_TagString: Untagged
@@ -725,28 +701,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819846263320664303}
-  m_Mesh: {fileID: 0}
---- !u!64 &916812391778203019
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819846263320664303}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &2606161363824197165
 GameObject:
@@ -2190,7 +2144,6 @@ GameObject:
   - component: {fileID: 1035042601959272075}
   - component: {fileID: 4407363577362713930}
   - component: {fileID: 8045613330081669179}
-  - component: {fileID: 6242844597105104086}
   m_Layer: 0
   m_Name: Pared (34)
   m_TagString: Untagged
@@ -2511,28 +2464,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7200799910030167560}
   m_Mesh: {fileID: 0}
---- !u!64 &6242844597105104086
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7200799910030167560}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8690333744035710895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,7 +2477,6 @@ GameObject:
   - component: {fileID: 6425431425124140840}
   - component: {fileID: 7779125243933794633}
   - component: {fileID: 2261687612907808101}
-  - component: {fileID: 7780537722464897290}
   m_Layer: 0
   m_Name: Suelo (17)
   m_TagString: Untagged
@@ -2866,28 +2796,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8690333744035710895}
-  m_Mesh: {fileID: 0}
---- !u!64 &7780537722464897290
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8690333744035710895}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &8968960778196879691
 GameObject:
