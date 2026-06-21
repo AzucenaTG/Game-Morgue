@@ -217,7 +217,7 @@ public class PlayerInteract : MonoBehaviour
 
         inventoryMessage.SetActive(true);
 
-        Invoke(nameof(HideInventoryTutorial), 5f); // se oculta después de 5 segundos
+        Invoke(nameof(HideInventoryTutorial), 1f); 
     }
 
     void HideInventoryTutorial()
