@@ -7,6 +7,8 @@ public class VictoryScene : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("VictoryScene");
         }
     }

@@ -51,6 +51,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("DefeatScene");
     }
 }

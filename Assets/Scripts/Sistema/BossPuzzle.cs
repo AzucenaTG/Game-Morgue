@@ -140,6 +140,8 @@ public class BossPuzzle : MonoBehaviour
             yield return null;
         }
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(victorySceneName);
     }
 }
